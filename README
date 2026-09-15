@@ -9,5 +9,4 @@ $ chmod +x ./uninstall.sh
 $ sudo ./uninstall.sh
 
 usage:
-$ bull [init|build [target]|add|set|help]
-
+$ bull [init|build [target]|add|set|help|version]

@@ -97,11 +97,16 @@ case "$MODE" in
 
   # prints usage information
   help)
-    echo "usage: $0 [init|build [target]|add|set|help]"
+    echo "usage: $0 [init|build [target]|add|set|help|version]"
+    ;;
+  
+  # prints program version
+  version)
+    echo "bull v__VERSION"
     ;;
 
   *)
-    echo "usage: $0 [init|build [target]|add|set|help]" >&2
+    echo "usage: $0 [init|build [target]|add|set|help|version]" >&2
     exit 1
     ;;
 
