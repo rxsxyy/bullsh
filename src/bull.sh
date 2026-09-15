@@ -49,7 +49,7 @@ case "$MODE" in
       exit 1
     fi
     echo "building $PROJECT${TARGET:+ ($TARGET)}..."
-    $TARGET_CMD
+    sh -c "$TARGET_CMD"
     ;;
 
   # appends a file to the SRC variable in bull.bs
