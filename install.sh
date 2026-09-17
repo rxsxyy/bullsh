@@ -5,10 +5,10 @@ set -e
 # load configuration
 CONFIG="./install.conf"
 if [ -f "$CONFIG" ]; then
-    . "$CONFIG"
+  . "$CONFIG"
 else
-    echo "error: config file $CONFIG not found" >&2
-    exit 1
+  echo "error: config file $CONFIG not found" >&2
+  exit 1
 fi
 
 # ensure target directories exist
@@ -21,7 +21,7 @@ sed "s/__VERSION/$VERSION/g" "$SRC_FILE" > "$SHAREDIR/$TARGET_NAME.sh"
 chmod 755 "$SHAREDIR/$TARGET_NAME.sh"
 
 # create symlink without .sh extension in BINDIR
-echo "creating symlink $BINDIR/$TARGET_NAME"
+echo "creating symlink to $BINDIR/$TARGET_NAME"
 ln -sf "$SHAREDIR/$TARGET_NAME.sh" "$BINDIR/$TARGET_NAME"
 
 echo "done"
