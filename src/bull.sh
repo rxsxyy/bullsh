@@ -69,9 +69,9 @@ case "$MODE" in
     esac
     if grep -q "^SRC=" bull.bs; then
       if [ -z "$SRC" ]; then
-        sed -i "s|^SRC=.*|SRC=\"$2\"|" bull.bs
+        sed "s|^SRC=.*|SRC=\"$2\"|" bull.bs > bull.bs.tmp && mv bull.bs.tmp bull.bs
       else
-        sed -i "s|^SRC=.*|SRC=\"$SRC $2\"|" bull.bs
+        sed "s|^SRC=.*|SRC=\"$SRC $2\"|" bull.bs > bull.bs.tmp && mv bull.bs.tmp bull.bs
       fi
     else
       echo "SRC=\"$2\"" >> bull.bs
@@ -89,7 +89,7 @@ case "$MODE" in
     fi
     KEY="$2"; shift 2; VALUE="$*"
     if grep -q "^$KEY=" bull.bs; then
-      sed -i "s|^$KEY=.*|$KEY=\"$VALUE\"|" bull.bs
+      sed "s|^$KEY=.*|$KEY=\"$VALUE\"|" bull.bs > bull.bs.tmp && mv bull.bs.tmp bull.bs
     else
       echo "$KEY=\"$VALUE\"" >> bull.bs
     fi
